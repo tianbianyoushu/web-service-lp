@@ -281,16 +281,19 @@
     }
     .hero-title {
       font-family: 'Noto Serif JP', serif;
-      font-size: clamp(28px, 4vw, 52px);
+      font-size: clamp(22px, 2.8vw, 38px);
       font-weight: 700;
       color: var(--text);
-      line-height: 1.45;
-      letter-spacing: 0.04em;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
       margin-bottom: 24px;
+      word-break: keep-all;
+      overflow-wrap: normal;
     }
     .hero-title em {
       color: var(--orange);
       font-style: normal;
+      display: block;
     }
     .hero-desc {
       font-size: 16px;
@@ -365,40 +368,42 @@
       padding: 80px 0;
       border-top: 1px solid #F0F0F0;
     }
-    .personas-img-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .personas-img-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-    .personas-labels {
+    .personas-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 32px;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
     }
-    .persona-label {
+    .persona-card {
       text-align: center;
-      padding: 16px 20px;
       background: #FAFAFA;
-      border-radius: 12px;
+      border-radius: 20px;
       border: 1px solid #F0F0F0;
+      padding: 32px 20px 28px;
+      transition: box-shadow 0.3s, transform 0.3s;
     }
-    .persona-label .p-title {
-      font-size: 15px;
+    .persona-card:hover {
+      box-shadow: 0 10px 36px rgba(255,122,0,.12);
+      transform: translateY(-5px);
+    }
+    .persona-card img {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      margin: 0 auto 20px;
+      display: block;
+    }
+    .persona-card .p-title {
+      font-size: 16px;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
-    .persona-label .p-desc {
-      font-size: 12px;
+    .persona-card .p-desc {
+      font-size: 13px;
       color: var(--text-2);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
     /* ═══════════════════════════════════════
@@ -1030,20 +1035,20 @@
         <h2 class="section-title">こんな経営者様のお悩みを解決します</h2>
         <p class="section-sub" style="margin:0 auto;">中小企業・医療機関・飲食店など、あらゆる業種のWeb課題に対応します。</p>
       </div>
-      <div class="personas-img-wrap" data-anim="zoom" data-delay="1">
-        <img src="personas.png" alt="中小企業の社長・ドクター・飲食店経営者">
-      </div>
-      <div class="personas-labels" data-anim="fade-up" data-delay="2">
-        <div class="persona-label">
-          <div class="p-title">🏢 中小企業の社長</div>
+      <div class="personas-grid">
+        <div class="persona-card" data-anim="fade-up" data-delay="1">
+          <img src="persona1.png" alt="中小企業の社長">
+          <div class="p-title">中小企業の社長</div>
           <div class="p-desc">「会社のHPが古い」「問い合わせが来ない」など集客課題を抱える経営者様</div>
         </div>
-        <div class="persona-label">
-          <div class="p-title">🏥 医療機関・クリニック</div>
+        <div class="persona-card" data-anim="fade-up" data-delay="3">
+          <img src="persona2.png" alt="ドクター">
+          <div class="p-title">医療機関・クリニック</div>
           <div class="p-desc">「診療予約をLINEで受けたい」「休診日をスマホで更新したい」院長先生</div>
         </div>
-        <div class="persona-label">
-          <div class="p-title">🍽️ 飲食店オーナー</div>
+        <div class="persona-card" data-anim="fade-up" data-delay="5">
+          <img src="persona3.png" alt="飲食店経営者">
+          <div class="p-title">飲食店オーナー</div>
           <div class="p-desc">「SNSをやってみたがお客が来ない」「Webで予約を取りたい」飲食店経営者様</div>
         </div>
       </div>
