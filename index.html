@@ -20,18 +20,18 @@
       --yellow:       #FFD84B;
       --yellow-light: #FFF3B0;
       --white:        #FFFFFF;
-      --bg:           #FFFDF8;
-      --text:         #2C2015;
-      --text-2:       #6B5C47;
-      --text-3:       #A89880;
-      --border:       #FFE0B2;
+      --bg:           #FFFFFF;
+      --text:         #1A1A1A;
+      --text-2:       #555555;
+      --text-3:       #999999;
+      --border:       #F0E8E0;
       --nav-h:        70px;
 
       /* グラデーション */
-      --grad-main:  linear-gradient(135deg, #FF7A00 0%, #FFD84B 55%, #FFFFFF 100%);
-      --grad-warm:  linear-gradient(160deg, #FF9A3C 0%, #FFD84B 50%, #FFF8E8 100%);
-      --grad-light: linear-gradient(180deg, #FFF8EE 0%, #FFFFFF 100%);
-      --grad-hero:  linear-gradient(135deg, #FF7A00 0%, #FFB347 40%, #FFD84B 70%, #FFFFFF 100%);
+      --grad-main:  linear-gradient(135deg, #FF7A00 0%, #FFD84B 100%);
+      --grad-warm:  linear-gradient(160deg, #FF9A3C 0%, #FFD84B 100%);
+      --grad-light: #FFFFFF;
+      --grad-hero:  #FFFFFF;
     }
 
     /* ═══════════════════════════════════════
@@ -233,13 +233,13 @@
     .hero {
       margin-top: var(--nav-h);
       min-height: calc(100vh - var(--nav-h));
-      background: var(--grad-hero);
+      background: #ffffff;
       position: relative;
       overflow: hidden;
       display: flex;
       align-items: center;
     }
-    /* 背景装飾パーティクル */
+    /* 背景装飾（白ベース用・薄いオレンジ円） */
     .hero-deco {
       position: absolute;
       inset: 0;
@@ -249,11 +249,11 @@
     .hero-deco .circle {
       position: absolute;
       border-radius: 50%;
-      opacity: 0.18;
+      opacity: 0.06;
     }
-    .hero-deco .c1 { width: 520px; height: 520px; background: #fff; top: -120px; right: -80px; }
-    .hero-deco .c2 { width: 320px; height: 320px; background: #FFD84B; bottom: -60px; left: -60px; }
-    .hero-deco .c3 { width: 180px; height: 180px; background: #FF9A3C; top: 40%; right: 15%; }
+    .hero-deco .c1 { width: 600px; height: 600px; background: #FF9A3C; top: -180px; right: -140px; }
+    .hero-deco .c2 { width: 360px; height: 360px; background: #FFD84B; bottom: -100px; left: -80px; }
+    .hero-deco .c3 { width: 200px; height: 200px; background: #FF7A00; top: 35%; right: 12%; }
     .hero-inner {
       position: relative;
       z-index: 1;
@@ -269,10 +269,9 @@
     .hero-text {}
     .hero-tag {
       display: inline-block;
-      background: rgba(255,255,255,.35);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,.6);
-      color: var(--text);
+      background: #FFF3E0;
+      border: 1px solid #FFD084;
+      color: var(--orange);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -290,9 +289,8 @@
       margin-bottom: 24px;
     }
     .hero-title em {
-      color: var(--white);
+      color: var(--orange);
       font-style: normal;
-      text-shadow: 0 2px 12px rgba(200,80,0,.3);
     }
     .hero-desc {
       font-size: 16px;
@@ -325,18 +323,17 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      border: 2px solid var(--text);
-      color: var(--text);
+      border: 2px solid #E0E0E0;
+      color: var(--text-2);
       font-size: 15px;
       font-weight: 700;
       padding: 12px 26px;
       border-radius: 50px;
       letter-spacing: 0.06em;
-      background: rgba(255,255,255,.4);
-      backdrop-filter: blur(4px);
-      transition: background 0.2s, transform 0.2s;
+      background: #ffffff;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
     }
-    .btn-outline:hover { background: rgba(255,255,255,.7); transform: translateY(-2px); }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
 
     /* ヒーローイラスト */
     .hero-illus {
@@ -363,7 +360,8 @@
       position: absolute;
       background: #fff;
       border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(255,122,0,.18);
+      border: 1.5px solid #FFE0B2;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
       padding: 10px 16px;
       font-size: 13px;
       font-weight: 700;
@@ -406,7 +404,7 @@
        困りごと（お悩み）セクション
     ═══════════════════════════════════════ */
     .pain-section {
-      background: var(--bg);
+      background: #FAFAFA;
       padding: 96px 0;
     }
     .section-label {
@@ -474,7 +472,7 @@
        解決策（サービス）セクション
     ═══════════════════════════════════════ */
     .service-section {
-      background: var(--grad-light);
+      background: #ffffff;
       padding: 96px 0;
     }
     .service-grid {
@@ -650,7 +648,7 @@
        制作の流れ
     ═══════════════════════════════════════ */
     .flow-section {
-      background: var(--grad-light);
+      background: #FAFAFA;
       padding: 96px 0;
     }
     .flow-steps {
@@ -773,7 +771,9 @@
        CTA バナー
     ═══════════════════════════════════════ */
     .cta-section {
-      background: var(--grad-hero);
+      background: linear-gradient(160deg, #FFF8F0 0%, #FFFFFF 50%, #FFF3E0 100%);
+      border-top: 1px solid #FFE0B2;
+      border-bottom: 1px solid #FFE0B2;
       padding: 96px 0;
       text-align: center;
       position: relative;
@@ -782,17 +782,17 @@
     .cta-section .c-deco {
       position: absolute;
       border-radius: 50%;
-      opacity: 0.12;
-      background: #fff;
+      opacity: 0.08;
+      background: #FF9A3C;
     }
     .cta-section .cd1 { width: 400px; height: 400px; top: -120px; right: -80px; }
     .cta-section .cd2 { width: 250px; height: 250px; bottom: -60px; left: -40px; }
     .cta-inner { position: relative; z-index: 1; }
     .cta-tag {
       display: inline-block;
-      background: rgba(255,255,255,.35);
-      border: 1px solid rgba(255,255,255,.6);
-      color: var(--text);
+      background: #FFF3E0;
+      border: 1px solid #FFD084;
+      color: var(--orange);
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -810,7 +810,7 @@
     }
     .cta-sub {
       font-size: 16px;
-      color: rgba(44,32,21,.8);
+      color: var(--text-2);
       margin-bottom: 44px;
       line-height: 1.9;
     }
