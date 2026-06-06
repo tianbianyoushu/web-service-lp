@@ -405,6 +405,43 @@
       color: var(--text-2);
       line-height: 1.75;
     }
+    /* 吹き出し */
+    .persona-bubble {
+      position: relative;
+      display: inline-block;
+      background: #FFF8F0;
+      border: 2px solid var(--orange);
+      border-radius: 14px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .persona-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 7px solid transparent;
+      border-top-color: var(--orange);
+    }
+    .persona-bubble::before {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #FFF8F0;
+      z-index: 1;
+    }
+    /* 1枚ずつ出現：個別transition-delay */
+    .persona-card:nth-child(1) { transition-delay: 0s !important; }
+    .persona-card:nth-child(2) { transition-delay: 0.35s !important; }
+    .persona-card:nth-child(3) { transition-delay: 0.7s !important; }
 
     /* ═══════════════════════════════════════
        困りごと（お悩み）セクション
@@ -929,7 +966,11 @@
       .illus-wrap { max-width: 340px; margin: 0 auto; }
       .hero-btns { justify-content: center; }
       .hero-desc { margin-left: auto; margin-right: auto; }
-      .personas-labels { grid-template-columns: 1fr; }
+      .personas-grid { grid-template-columns: 1fr; max-width: 400px; }
+      /* スマホは時差なし（全て即時表示） */
+      .persona-card:nth-child(1),
+      .persona-card:nth-child(2),
+      .persona-card:nth-child(3) { transition-delay: 0s !important; }
       .pain-grid { grid-template-columns: 1fr; }
       .service-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; gap: 28px; }
@@ -1036,17 +1077,20 @@
         <p class="section-sub" style="margin:0 auto;">中小企業・医療機関・飲食店など、あらゆる業種のWeb課題に対応します。</p>
       </div>
       <div class="personas-grid">
-        <div class="persona-card" data-anim="fade-up" data-delay="1">
+        <div class="persona-card" data-anim="fade-up">
+          <div class="persona-bubble">うちの会社、<br>HPがないんだよね…😰</div>
           <img src="persona1.png" alt="中小企業の社長">
           <div class="p-title">中小企業の社長</div>
           <div class="p-desc">「会社のHPが古い」「問い合わせが来ない」など集客課題を抱える経営者様</div>
         </div>
-        <div class="persona-card" data-anim="fade-up" data-delay="3">
+        <div class="persona-card" data-anim="fade-up">
+          <div class="persona-bubble">LINE予約って<br>難しそう…😓</div>
           <img src="persona2.png" alt="ドクター">
           <div class="p-title">医療機関・クリニック</div>
           <div class="p-desc">「診療予約をLINEで受けたい」「休診日をスマホで更新したい」院長先生</div>
         </div>
-        <div class="persona-card" data-anim="fade-up" data-delay="5">
+        <div class="persona-card" data-anim="fade-up">
+          <div class="persona-bubble">集客が全然<br>うまくいかない…😢</div>
           <img src="persona3.png" alt="飲食店経営者">
           <div class="p-title">飲食店オーナー</div>
           <div class="p-desc">「SNSをやってみたがお客が来ない」「Webで予約を取りたい」飲食店経営者様</div>
